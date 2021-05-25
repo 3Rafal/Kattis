@@ -1,14 +1,13 @@
 open Scanf
 open Printf
 
-(*
-TODO:
+let rec go n i result =
+  if i = n then result
+  else
+    scanf "%f %f\n" (fun q ys ->
+        go n (i+1) (result +. (q *. ys)))
+
 let main =
-  try
-    while true do 
-        scanf "%d " (fun x1 ->
-            scanf "%d\n" (fun x2 ->
-                printf "%d\n"  (abs (x1 - x2))))
-    done
-  with _ -> () 
- *)
+  scanf "%d\n" (fun n ->
+      printf "%f\n" (go n 0 0.0))
+
